@@ -14,13 +14,17 @@ export default function TodosClientPage() {
             className="flex w-full items-center min-h-[4rem] pl-4  gap-2"
           >
             <button
-            className="py-4"
+              className="py-4"
               onClick={() => {
                 toggleTodo(id);
               }}
               aria-label="Toggle todo"
             >
-              <RiCheckFill className={`w-8 h-8 ${completed? "text-green-500": "text-slate-500"} hover:text-green-700 transition-colors `} />
+              <RiCheckFill
+                className={`w-8 h-8 ${
+                  completed ? "text-green-500" : "text-slate-500"
+                } hover:text-green-700 transition-colors `}
+              />
             </button>
             <span
               className={`${
@@ -44,9 +48,14 @@ export default function TodosClientPage() {
 
       <footer className="flex justify-between items-center w-full p-4">
         <span className="text-slate-400">
-          {todos ? todos.length : 0}{" "}Tareas
+          {todos ? todos.length : 0} Tareas
         </span>
-        <button onClick={() =>{clearCompleted()}} className="text-slate-400 hover:text-slate-100 transition-colors">
+        <button
+          onClick={() => {
+            clearCompleted();
+          }}
+          className="text-slate-400 hover:text-slate-100 transition-colors"
+        >
           Clear completed
         </button>
       </footer>
