@@ -9,10 +9,8 @@ export default function FormClientPage() {
         if(input != ''){
             const id = Date.now().toString();
             const completed = false;
-            if(typeof window !== 'undefined'){
             addTodo({id, title: input, completed});
             setInput("")
-            }
         }
         
       }
