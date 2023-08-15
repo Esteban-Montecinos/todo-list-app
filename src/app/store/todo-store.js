@@ -1,11 +1,12 @@
 import { create } from "zustand";
 
 const saveTodosToStorage = (todos) => {
-  window.localStorage.setItem("todos", JSON.stringify(todos));
+   window?.localStorage.setItem("todos", JSON.stringify(todos)) 
+  
 };
 
 const getInitialTodos = () => {
-  const todosFromStorage = window.localStorage.getItem("todos");
+  const todosFromStorage = window?.localStorage.getItem("todos");
   if (todosFromStorage) {
     return JSON.parse(todosFromStorage);
   } else {
