@@ -6,7 +6,7 @@ export default function TodosClientPage() {
   const { todos } = useTodoStore();
   const { toggleTodo, removeTodo, clearCompleted } = useTodoStore();
   return (
-    <section className="mt-5 mb-10 divide-y divide-slate-500 w-full flex flex-col max-w-2xl bg-slate-800 rounded-lg drop-shadow-lg">
+    <section className="flex flex-col w-full max-w-2xl mt-5 mb-10 divide-y rounded-lg divide-neutral-500 bg-neutral-800 drop-shadow-lg">
       {todos ? (
         todos.map(({ id, title, completed }) => (
           <article
@@ -22,13 +22,13 @@ export default function TodosClientPage() {
             >
               <RiCheckFill
                 className={`w-8 h-8 ${
-                  completed ? "text-green-500" : "text-slate-500"
-                } hover:text-green-700 transition-colors `}
+                  completed ? "text-emerald-500" : "text-neutral-500"
+                } hover:text-emerald-500 transition-colors `}
               />
             </button>
             <span
               className={`${
-                completed ? "text-slate-500 line-through" : "text-slate-200"
+                completed ? "text-neutral-500 line-through" : "text-neutral-100"
               } flex-1 `}
             >
               {title}
@@ -37,26 +37,26 @@ export default function TodosClientPage() {
               onClick={() => {
                 removeTodo(id);
               }}
-              aria-label="Remove todo"
-              className="pr-4 text-slate-500 hover:text-slate-700"
+              aria-label="Eliminar todo"
+              className="pr-4 text-neutral-500 hover:text-pink-500"
             >
-              <RiCloseFill className="w-8 h-8  " />
+              <RiCloseFill className="w-8 h-8 " />
             </button>
           </article>
         ))
       ) : null}
 
-      <footer className="flex justify-between items-center w-full p-4">
-        <span className="text-slate-400">
+      <footer className="flex items-center justify-between w-full p-4">
+        <span className="text-neutral-400">
           {todos ? todos.length : 0} Tareas
         </span>
         <button
           onClick={() => {
             clearCompleted();
           }}
-          className="text-slate-400 hover:text-slate-100 transition-colors"
+          className="transition-colors text-neutral-400 hover:text-neutral-100"
         >
-          Clear completed
+          Borrar completados
         </button>
       </footer>
     </section>

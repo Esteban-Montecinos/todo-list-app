@@ -1,7 +1,7 @@
 import { create } from "zustand";
 
 export const useTodoStore = create((set) => ({
-  todos: [{ id: 0, title: "Learn Next.JS with Zustand", completed: true }],
+  todos: [{ id: 0, title: "Crear una tarea", completed: true }],
   addTodo: (todo) => {
     set((state) => {
       const currentTodosAdd = [...state.todos, todo];

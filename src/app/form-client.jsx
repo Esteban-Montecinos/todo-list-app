@@ -15,17 +15,17 @@ export default function FormClientPage() {
         
       }
   return (
-    <form onSubmit={handleSubmit} className="flex items-center w-full max-w-2xl bg-slate-900 rounded-lg drop-shadow-lg">
+    <form onSubmit={handleSubmit} className="flex items-center w-full max-w-2xl rounded-lg bg-neutral-900 drop-shadow-lg">
         <input
           type="text"
           name="todoInput"
-          placeholder="Create a new todo..."
-          className="bg-slate-800 text-slate-200 rounded-l-lg p-4 flex-1 outline-none"
+          placeholder="Agrega una nueva tarea"
+          className="flex-1 p-4 rounded-l-lg outline-none bg-neutral-800 text-neutral-200"
           value={input} 
           onChange={(e) => setInput(e.target.value)}
         />
         <button
-          className="p-4 rounded-r-lg hover:bg-black transition-colors"
+          className="p-4 transition-colors rounded-r-lg hover:bg-neutral-900/40"
           type="submit"
           aria-label="add todo"
         >

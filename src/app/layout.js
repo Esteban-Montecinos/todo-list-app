@@ -11,7 +11,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={`${manrope.className} bg-slate-950 text-white` } >{children}</body>
+      <body className={`${manrope.className} bg-neutral-950 text-white` } >{children}</body>
     </html>
   )
 }
