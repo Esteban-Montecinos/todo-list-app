@@ -1,36 +1,38 @@
-'use client'
-import { RiAddFill } from "react-icons/ri";
+"use client";
 import { useFormStore, useTodoStore } from "./store/todo-store";
 export default function FormClientPage() {
-  const {addTodo} = useTodoStore();
-  const {input, setInput} = useFormStore()
-    function handleSubmit(event) {
-        event.preventDefault();
-        if(input != ''){
-            const id = Date.now().toString();
-            const completed = false;
-            addTodo({id, title: input, completed});
-            setInput("")
-        }
-        
-      }
+  const { addTodo } = useTodoStore();
+  const { input, setInput } = useFormStore();
+  function handleSubmit(event) {
+    event.preventDefault();
+    if (input != "") {
+      const id = Date.now().toString();
+      const completed = false;
+      addTodo({ id, title: input, completed });
+      setInput("");
+    }
+  }
   return (
-    <form onSubmit={handleSubmit} className="flex items-center w-full max-w-2xl rounded-lg bg-neutral-900 drop-shadow-lg">
-        <input
-          type="text"
-          name="todoInput"
-          placeholder="Agrega una nueva tarea"
-          className="flex-1 p-4 rounded-l-lg outline-none bg-neutral-800 text-neutral-200"
-          value={input} 
-          onChange={(e) => setInput(e.target.value)}
-        />
-        <button
-          className="p-4 transition-colors rounded-r-lg hover:bg-neutral-900/40"
-          type="submit"
-          aria-label="add todo"
-        >
-          <RiAddFill className="w-6 h-6 text-white" />
-        </button>
-      </form>
-  )
+    <form
+      onSubmit={handleSubmit}
+      className="flex flex-col items-center w-full max-w-2xl p-4 rounded-lg gap-y-2 bg-neutral-800 drop-shadow-lg"
+    >
+      <textarea
+        name="todoInput"
+        rows={3}
+        value={input}
+        onChange={(e) => setInput(e.target.value)}
+        className="w-full text-lg text-white bg-transparent border-b outline-none resize-none placeholder-neutral-400 border-neutral-600"
+        placeholder="Agrega una nueva tarea"
+      ></textarea>
+
+      <button
+        disabled={input == ""}
+        type="submit"
+        className="self-end px-5 py-2 text-sm font-bold text-white rounded-full bg-neutral-900 disabled:opacity-80 disabled:pointer-events-none"
+      >
+        Agregar
+      </button>
+    </form>
+  );
 }

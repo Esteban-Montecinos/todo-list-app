@@ -6,15 +6,15 @@ export default function TodosClientPage() {
   const { todos } = useTodoStore();
   const { toggleTodo, removeTodo, clearCompleted } = useTodoStore();
   return (
-    <section className="flex flex-col w-full max-w-2xl mt-5 mb-10 divide-y rounded-lg divide-neutral-500 bg-neutral-800 drop-shadow-lg">
+    <section className="flex flex-col flex-1 w-full max-w-2xl mt-5 mb-10 divide-y rounded-lg divide-neutral-500 bg-neutral-800 drop-shadow-lg">
       {todos ? (
         todos.map(({ id, title, completed }) => (
           <article
             key={id}
-            className="flex w-full items-center min-h-[4rem] pl-4  gap-2"
+            className="flex items-center justify-between w-full"
           >
             <button
-              className="py-4"
+              className="p-4"
               onClick={() => {
                 toggleTodo(id);
               }}
@@ -29,7 +29,7 @@ export default function TodosClientPage() {
             <span
               className={`${
                 completed ? "text-neutral-500 line-through" : "text-neutral-100"
-              } flex-1 `}
+              } break-all flex-1`}
             >
               {title}
             </span>
@@ -38,7 +38,7 @@ export default function TodosClientPage() {
                 removeTodo(id);
               }}
               aria-label="Eliminar todo"
-              className="pr-4 text-neutral-500 hover:text-pink-500"
+              className="p-4 text-neutral-500 hover:text-pink-500"
             >
               <RiCloseFill className="w-8 h-8 " />
             </button>
