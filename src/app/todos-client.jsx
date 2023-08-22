@@ -6,12 +6,12 @@ export default function TodosClientPage() {
   const { todos } = useTodoStore();
   const { toggleTodo, removeTodo, clearCompleted } = useTodoStore();
   return (
-    <section className="flex flex-col flex-1 w-full max-w-2xl mt-5 mb-10 divide-y rounded-lg divide-neutral-500 bg-neutral-800 drop-shadow-lg">
+    <section className="flex flex-col-reverse flex-1 w-full max-w-2xl mt-5 mb-10 rounded-lg bg-neutral-800 drop-shadow-lg">
       {todos ? (
         todos.map(({ id, title, completed }) => (
           <article
             key={id}
-            className="flex items-center justify-between w-full"
+            className="flex items-center justify-between w-full border-b border-neutral-500"
           >
             <button
               className="p-4"
@@ -46,7 +46,7 @@ export default function TodosClientPage() {
         ))
       ) : null}
 
-      <footer className="flex items-center justify-between w-full p-4">
+      <footer className="flex items-center justify-between order-first w-full p-4">
         <span className="text-neutral-400">
           {todos ? todos.length : 0} Tareas
         </span>
