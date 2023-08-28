@@ -7,8 +7,7 @@ export default function TodosClientPage() {
   const { toggleTodo, removeTodo, clearCompleted } = useTodoStore();
   return (
     <section className="flex flex-col-reverse flex-1 w-full max-w-2xl mt-5 mb-10 rounded-lg bg-neutral-800 drop-shadow-lg">
-      {todos ? (
-        todos.map(({ id, title, completed }) => (
+      {todos.map(({ id, title, completed }) => (
           <article
             key={id}
             className="flex items-center justify-between w-full border-b border-neutral-500"
@@ -44,7 +43,7 @@ export default function TodosClientPage() {
             </button>
           </article>
         ))
-      ) : null}
+      }
 
       <footer className="flex items-center justify-between order-first w-full p-4">
         <span className="text-neutral-400">
