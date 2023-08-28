@@ -20,6 +20,7 @@ export default function FormClientPage() {
       <textarea
         name="todoInput"
         rows={3}
+        autoFocus
         value={input}
         onChange={(e) => setInput(e.target.value)}
         className="w-full text-lg text-white bg-transparent border-b outline-none resize-none placeholder-neutral-400 border-neutral-600"
